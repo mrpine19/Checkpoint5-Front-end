@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Header } from "./components/header"
+import type { StudySession } from "./types/study-session";
+import { StudySessionList } from "./components/study-session-list";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [listStudySession, setListSessionStudy] = useState<StudySession[]>([
+    {
+      id: "1",
+      subject: "Matemática",
+      minutes: 60,
+      date: "29/09/2025",
+      notes: "Estudar estatística",
+    },
+    {
+      id: "2",
+      subject: "História",
+      minutes: 45,
+      date: "30/09/2025",
+      notes: "Revisar Revolução Francesa",
+    },
+    {
+      id: "3",
+      subject: "Biologia",
+      minutes: 90,
+      date: "01/10/2025",
+      notes: "Estudar sistema respiratório",
+    },
+    {
+      id: "4",
+      subject: "Química",
+      minutes: 30,
+      date: "02/10/2025",
+      notes: "Fazer exercícios sobre ligações químicas",
+    },
+    {
+      id: "5",
+      subject: "Inglês",
+      minutes: 75,
+      date: "03/10/2025",
+      notes: "Praticar leitura e vocabulário",
+    },
+  ]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <Header/>
+        <main>
+          <button
+            onClick={() =>
+              setListSessionStudy([
+                ...listStudySession,
+                {
+                  id: "3",
+                  subject: "Biologia",
+                  minutes: 90,
+                  date: "01/10/2025",
+                  notes: "Estudar sistema respiratório",
+                },
+              ])
+            }
+          >
+          Adicionar estudo
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+        <StudySessionList studySessionList={listStudySession} />
+      </main>
     </>
-  )
+    
+  );
 }
 
 export default App
