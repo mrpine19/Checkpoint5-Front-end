@@ -1,7 +1,7 @@
  export interface StudySession {
     id: string;
-    subject: string; // ex: "React", "Estruturas de Dados"
-    minutes: number; // duração em minutos
-    date: string; // ISO yyyy-mm-dd
-    notes: string;
+    subject: string;
+    minutes: number; 
+    date: string; 
+    notes?: string;
 }
