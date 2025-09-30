@@ -1,28 +1,21 @@
-import { useState } from "react";
-import { Header } from "./components/header"
-import type { StudySession } from "./types/study-session";
-import { StudySessionList } from "./components/study-session-list";
-import { StudySessionForm } from "./components/study-session-form";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Layout } from "./components/layout";
+import { Home } from "./pages/home";
+import { AddStudySession } from "./pages/add-study-session";
+import { StudySessionDetails } from "./pages/study-session-details";
 
 function App() {
-  const [listStudySession, setListSessionStudy] = useState<StudySession[]>([]);
-
-  function addStudySession(studySession: StudySession) {
-    setListSessionStudy((previous) => [...previous, studySession]);
-  }
-
-  function cleanStudySessionsList() {
-    setListSessionStudy([]);
-  }
-
   return (
     <>
-      <Header/>
-        <main>
-          <button onClick={cleanStudySessionsList}>Limpar sessões de estudo</button>
-        <StudySessionForm onAdd={addStudySession} />
-        <StudySessionList studySessionList={listStudySession} />
-      </main>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/add" element={<AddStudySession />} />
+          <Route path="/studySession/:id" element={<StudySessionDetails />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </>
     
   );
