@@ -7,8 +7,8 @@ export function StudySessionDetails() {
 
     return (
         <>
-            <h2>Detalhes da sessão de estudo</h2>
-            <p>ID da sessão: {id}</p>
+            <h2 className="font-bold text-gray-600 text-xl mb-3">Detalhes da sessão de estudo</h2>
+            <p className="font-bold text-gray-600 text-xl mb-3">ID da sessão: {id}</p>
             <StudySessionCard studySession={state.studySession} />
         </>
     );
