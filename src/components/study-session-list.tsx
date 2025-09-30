@@ -1,5 +1,5 @@
 import type { StudySession } from "../types/study-session";
-import { StudySessionCard } from "./study-session-card";
+import { StudySessionResume } from "./study-session-resume";
 
 interface StudySessionListProps{
     studySessionList: StudySession[];
@@ -10,7 +10,7 @@ export function StudySessionList({ studySessionList }: StudySessionListProps){
         <>
         <h2>Lista de assuntos para estudar</h2>
         {studySessionList.map((value) => {
-            return <StudySessionCard studySession={value} />;
+            return <StudySessionResume studySession={value} />;
         })}
         </>
     );
