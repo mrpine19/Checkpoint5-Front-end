@@ -12,7 +12,7 @@ export function AddStudySession() {
 
   return (
     <>
-        <h2>Adicioar novo estudo</h2>
+        <h2 className="font-bold text-blue-800 text-xl mb-3">Adicioar novo estudo</h2>
 
         <StudySessionForm onAdd={addStudySession} />
         <StudySessionList studySessionList={studySession} />

@@ -16,10 +16,10 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
 
     const studySession: StudySession = {
       id: crypto.randomUUID(),
-      subject: subject,
-      minutes: minutes,
-      date: date,
-      notes: notes,
+      subject,
+      minutes,
+      date,
+      notes,
     };
 
     onAdd(studySession);
@@ -33,13 +33,7 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      action=""
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "80%",
-        gap: "0.5rem",
-      }}
+      className="bg-white shadow rounded-lg p-4 flex flex-col gap-3 w-4/5 mb-5"
     >
       <label htmlFor="subject-name">Nome da matéria</label>
       <input
@@ -48,6 +42,7 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
         placeholder="Nome da matéria"
         onChange={(e) => setSubject(e.target.value)}
         value={subject}
+        className="border rounded p-2"
       />
 
       <label htmlFor="study-duration">Por quantos minutos você irá estudar?</label>
@@ -57,6 +52,7 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
         placeholder="Duração"
         onChange={(e) => setMinutes(Number(e.target.value))}
         value={minutes}
+        className="border rounded p-2"
       />
 
       <label htmlFor="study-notes">Observações para esse estudo (exemplo: fazer revisão)</label>
@@ -66,6 +62,7 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
         placeholder="Notas"
         onChange={(e) => setNotes(e.target.value)}
         value={notes}
+        className="border rounded p-2"
       />
 
       <label htmlFor="study-date">Que dia você vai estudar essa matéria?</label>
@@ -75,9 +72,10 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
         placeholder="Dia do estudo"
         onChange={(e) => setDate(e.target.value)}
         value={date}
+        className="border rounded p-2"
       />
 
-      <button type="submit">Adicionar estudo</button>
+      <button className="btn" type="submit">Adicionar estudo</button>
     </form>
   );
 }
