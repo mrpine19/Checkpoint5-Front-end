@@ -11,10 +11,15 @@ function App() {
     setListSessionStudy((previous) => [...previous, studySession]);
   }
 
+  function cleanStudySessionsList() {
+    setListSessionStudy([]);
+  }
+
   return (
     <>
       <Header/>
         <main>
+          <button onClick={cleanStudySessionsList}>Limpar sessões de estudo</button>
         <StudySessionForm onAdd={addStudySession} />
         <StudySessionList studySessionList={listStudySession} />
       </main>
