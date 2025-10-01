@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# StudyLog – Tracker de Estudos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sobre o Projeto
 
-Currently, two official plugins are available:
+O **StudyLog** é uma SPA moderna desenvolvida em React + TypeScript para registrar sessões de estudo. O projeto foi desenvolvido como parte do Checkpoint 5, seguindo todos os requisitos técnicos e funcionais propostos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Desenvolvedor
 
-## React Compiler
+- **Nome:** Gustavo Pinheiro de Oliveira  
+- **RM:** RM566358 
+- **Repositório:** https://github.com/mrpine19/Checkpoint5-Front-end
+- **Deploy Vercel:** https://checkpoint5-front-end.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Objetivo
 
-## Expanding the ESLint configuration
+Construir uma SPA para registrar sessões de estudo, utilizando:
+- React + TypeScript
+- Componentes e props tipadas
+- Gerenciamento de estado com useState
+- Rotas estáticas e dinâmicas (React Router)
+- Layout com navegação (Outlet)
+- Estilização com TailwindCSS
+- Página 404 customizada
+- Lazy loading com React.Suspense
+- ErrorBoundary
+- useMemo e useCallback para otimização
+- Deploy na Vercel
+- Fluxo de versionamento GitFlow
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Funcionalidades
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Home (/):** Lista de sessões cadastradas
+- **Nova Sessão (/add):** Formulário controlado para adicionar sessão
+- **Detalhes (/studySession/:id):** Exibe dados da sessão selecionada
+- **404:** Página customizada para rotas não encontradas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Como rodar o projeto localmente
+
+```bash
+git clone https://github.com/mrpine19/Checkpoint5-Front-end
+cd Checkpoint5-Front-end
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Projeto desenvolvido para fins acadêmicos.
