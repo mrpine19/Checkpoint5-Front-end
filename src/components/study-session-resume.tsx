@@ -17,19 +17,19 @@ export function StudySessionResume({ studySession, removeStudySession }: StudySe
                         state={{ studySession }}
                         className="btn"
                     >
-                        Detalhes
+                        Acessar detalhes da matéria
                     </Link>
 
                     <button
                         className="p-2 bg-red-600 text-white font-bold hover:cursor-pointer rounded"
                         onClick={() => removeStudySession(studySession.id)}
                     >
-                        Remover treino
+                        Remover matéria
                     </button>
                     </div>
             </div>
-
             <h3>Data: {studySession.date}</h3>
+            <h3>Hora de início: {studySession.startTime}</h3>
         </div>
     );
 }

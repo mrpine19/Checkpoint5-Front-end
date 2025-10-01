@@ -5,10 +5,10 @@ export function Layout() {
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow mb-6">
         <div className="flex justify-center items-center p-4 gap-5">
-          <Link className="text-blue-600 hover:underline font-bold" to="/">
+          <Link className="text-orange-600 hover:underline font-bold" to="/">
             Home
           </Link>
-          <Link className="text-blue-600 hover:underline font-bold" to="/add">
+          <Link className="text-orange-600 hover:underline font-bold" to="/add">
             Criar novo estudo
           </Link>
         </div>
