@@ -9,6 +9,7 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
     const [subject, setSubject] = useState("");
     const [minutes, setMinutes] = useState(0);
     const [date, setDate] = useState("");
+    const [startTime, setStartTime] = useState("");
     const [notes, setNotes] = useState("");
 
     function handleSubmit(event: React.FormEvent): void {
@@ -19,6 +20,7 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
       subject,
       minutes,
       date,
+      startTime,
       notes,
     };
 
@@ -27,6 +29,7 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
     setSubject("");
     setMinutes(0);
     setDate("");
+    setStartTime("");
     setNotes("");
   }
 
@@ -72,6 +75,16 @@ export function StudySessionForm({ onAdd }: StudySessionFormProps) {
         placeholder="Dia do estudo"
         onChange={(e) => setDate(e.target.value)}
         value={date}
+        className="border rounded p-2"
+      />
+
+      <label htmlFor="study-start-time">Que horas você vai começar a estudar essa matéria?</label>
+      <input
+        type="string"
+        id="study-start-time"
+        placeholder="Hora de início"
+        onChange={(e) => setStartTime(e.target.value)}
+        value={startTime}
         className="border rounded p-2"
       />
 
