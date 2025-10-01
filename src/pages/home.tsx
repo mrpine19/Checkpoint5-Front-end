@@ -1,7 +1,15 @@
-export function Home() {
+import { StudySessionList } from "../components/study-session-list";
+import type { StudySession } from "../types/study-session";
+
+interface HomeProps {
+  studySessions: StudySession[];
+  removeStudySession: (id: string) => void;
+}
+
+export function Home({ studySessions, removeStudySession }: HomeProps) {
   return (
     <>
-      <h2 className="font-bold text-gray-600 text-xl mb-3">🏠 Página Inicial - Lista de Estudos</h2>
+      <StudySessionList removeStudySession={removeStudySession} studySessionList={studySessions} />
     </>
   );
 }

@@ -1,19 +1,18 @@
-import { useCallback, useMemo, useState } from "react"
+import { useMemo } from "react"
 import type { StudySession } from "../types/study-session";
 import { StudySessionForm } from "../components/study-session-form";
-import { StudySessionList } from "../components/study-session-list";
 
-export function AddStudySession() {
-  const [studySession, setStudySession] = useState<StudySession[]>([]);
+interface AddStudySessionProps {
+  studySessions: StudySession[];
+  onAdd: (studySession: StudySession) => void;
+}
 
-  const addStudySession = useCallback((studySession: StudySession) => {
-    setStudySession((previous) => [...previous, studySession]);
-  }, []);
+export function AddStudySession({ studySessions, onAdd }: AddStudySessionProps) {
 
   const studySessionMinutes = useMemo(() => {
     let studyMinutesRealized: number = 0;
 
-    studySession.forEach((value) => {
+    studySessions.forEach((value) => {
       studyMinutesRealized += value.minutes;
     });
 
@@ -21,32 +20,14 @@ export function AddStudySession() {
     const minutes = studyMinutesRealized % 60;
 
     return `${hours}:${minutes}`;
-  }, [studySession]);
-
-  const removeStudySession = useCallback((id: string) => {
-    setStudySession((prev) => {
-      // procura se o item existe na lista
-      const studyToDelete = prev.some((studySession) => studySession.id === id);
-
-      if (studyToDelete) {
-        // filtra todos os itens diferentes do que existe na lista
-        const newStudies = prev.filter((studySession) => studySession.id !== id);
-
-        return newStudies;
-      }
-
-      // se não existir, retorna a lista sem alterações
-      return prev;
-    });
-  }, []);
+  }, [studySessions]);
 
   return (
     <>
         <h2>Adicioar novo estudo</h2>
         <h3>Total de horas estudadas: {studySessionMinutes}</h3>
 
-        <StudySessionForm onAdd={addStudySession} />
-        <StudySessionList removeStudySession={removeStudySession} studySessionList={studySession} />
+        <StudySessionForm onAdd={onAdd} />
     </>
   );
 }
